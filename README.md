@@ -42,59 +42,44 @@ https://github.com/Hammadsoftware/ai-travel-agent
 
 ## 🏗️ Architecture Overview
 
-![AI Travel Agent Architecture](docs/architecture.png)
+```mermaid
+graph TD
+    A[React + TypeScript Frontend] -->|REST API / JSON| B[FastAPI Backend]
 
-### Application Flow
+    A --> AUTH[Authentication]
 
-```text
-┌──────────────────────────────┐
-│       React Frontend         │
-│                              │
-│  Travel Planner UI           │
-│  Authentication              │
-│  Flight / Hotel Results       │
-│  Itinerary & Insights         │
-└──────────────┬───────────────┘
-               │
-               │ API Requests / JSON
-               ▼
-┌──────────────────────────────┐
-│       FastAPI Backend        │
-│                              │
-│      REST API Layer          │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│          LangGraph           │
-│     Agent Orchestration      │
-│                              │
-│   Supervisor / Router Agent  │
-└──────────────┬───────────────┘
-               │
-       ┌───────┼────────┐
-       ▼       ▼        ▼
-   Flight    Hotel    Web Search
-    Agent    Agent      Agent
-       │       │        │
-       ▼       ▼        ▼
- Aviation   Hotel     Tavily
-  stack     Search    Search
-       │       │        │
-       └───────┼────────┘
-               ▼
-┌──────────────────────────────┐
-│     Response Synthesizer     │
-│                              │
-│  Combine Agent Results       │
-│  Generate Final Response     │
-└──────────────┬───────────────┘
-               │
-               ▼
-        React Frontend
-```
+    B --> C[LangGraph Agent Orchestration]
 
----
+    C --> S[Supervisor / Router Agent]
+
+    S --> F[✈️ Flight Agent]
+    S --> H[🏨 Hotel Agent]
+    S --> W[🔎 Web Search Agent]
+
+    F --> AV[Aviationstack API]
+    H --> HS[Hotel Search]
+    W --> T[Tavily Search]
+
+    AV --> R[Response Synthesizer]
+    HS --> R
+    T --> R
+
+    R -->|Structured Response| B
+    B -->|JSON / Response| A
+
+    classDef frontend fill:#2563eb,color:#fff,stroke:#1d4ed8
+    classDef backend fill:#16a34a,color:#fff,stroke:#15803d
+    classDef agent fill:#9333ea,color:#fff,stroke:#7e22ce
+    classDef tool fill:#f59e0b,color:#fff,stroke:#d97706
+    classDef auth fill:#64748b,color:#fff,stroke:#475569
+    classDef response fill:#0891b2,color:#fff,stroke:#0e7499
+
+    class A frontend
+    class B backend
+    class C,S,F,H,W agent
+    class AV,HS,T tool
+    class AUTH auth
+    class R response
 
 ## 🔌 Backend Integration
 
