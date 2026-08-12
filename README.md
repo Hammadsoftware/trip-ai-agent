@@ -2,41 +2,41 @@
 
 A modern AI-powered travel planning interface built with **React + TypeScript**, connected to a **FastAPI + LangGraph** backend.
 
-🌐 **Live Demo:**
-https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/
+🌐 **Live Demo:**  
+[https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/](https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/)
 
-💻 **GitHub Repository:**
+💻 **GitHub Repository:**  
 https://github.com/Hammadsoftware/ai-travel-agent
 
 ---
 
 ## 🔹 Key Features
 
-* 🤖 **Natural-Language Travel Planning** — Ask travel questions naturally.
-* ✈️ **Flight Information** — Search and display flight data.
-* 🏨 **Hotel Information** — Find hotel information for destinations.
-* 🗺️ **AI Itinerary** — Generate structured travel plans.
-* 📊 **Trip Insights** — Display travel statistics and visualization data.
-* 🔐 **Authentication** — Signup and signin interface.
-* ⚡ **AI Responses** — Receive responses from the agentic AI backend.
-* 📱 **Responsive UI** — Modern responsive travel interface.
+- 🤖 **Natural-Language Travel Planning** — Ask travel questions naturally.
+- ✈️ **Flight Information** — Search and display flight data.
+- 🏨 **Hotel Information** — Find hotel information for destinations.
+- 🗺️ **AI Itinerary** — Generate structured travel plans.
+- 📊 **Trip Insights** — Display travel statistics and visualization data.
+- 🔐 **Authentication** — Signup and signin interface.
+- ⚡ **AI Responses** — Receive responses from the agentic AI backend.
+- 📱 **Responsive UI** — Modern responsive travel interface.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Component            | Technology   | Purpose                |
-| -------------------- | ------------ | ---------------------- |
-| **Frontend**         | React        | User interface         |
-| **Language**         | TypeScript   | Type-safe development  |
-| **Styling**          | Tailwind CSS | Responsive UI          |
-| **API Client**       | Axios        | REST API communication |
-| **Routing**          | React Router | Application navigation |
-| **State Management** | Zustand      | Client-side state      |
-| **Backend**          | FastAPI      | REST API               |
-| **AI Orchestration** | LangGraph    | Agent workflow         |
-| **LLM**              | Groq / Llama | AI processing          |
-| **Web Search**       | Tavily       | Travel information     |
+| Component | Technology | Purpose |
+|---|---|---|
+| **Frontend** | React | User interface |
+| **Language** | TypeScript | Type-safe development |
+| **Styling** | Tailwind CSS | Responsive UI |
+| **API Client** | Axios | REST API communication |
+| **Routing** | React Router | Application navigation |
+| **State Management** | Zustand | Client-side state |
+| **Backend** | FastAPI | REST API |
+| **AI Orchestration** | LangGraph | Agent workflow |
+| **LLM** | Groq / Llama | AI processing |
+| **Web Search** | Tavily | Travel information |
 
 ---
 
@@ -45,16 +45,14 @@ https://github.com/Hammadsoftware/ai-travel-agent
 ```mermaid
 graph TD
     A[React + TypeScript Frontend] -->|REST API / JSON| B[FastAPI Backend]
-
     A --> AUTH[Authentication]
 
     B --> C[LangGraph Agent Orchestration]
-
     C --> S[Supervisor / Router Agent]
 
-    S --> F[✈️ Flight Agent]
-    S --> H[🏨 Hotel Agent]
-    S --> W[🔎 Web Search Agent]
+    S --> F[Flight Agent]
+    S --> H[Hotel Agent]
+    S --> W[Web Search Agent]
 
     F --> AV[Aviationstack API]
     H --> HS[Hotel Search]
@@ -80,6 +78,9 @@ graph TD
     class AV,HS,T tool
     class AUTH auth
     class R response
+```
+
+---
 
 ## 🔌 Backend Integration
 
@@ -87,11 +88,11 @@ The frontend communicates with the FastAPI backend through REST APIs.
 
 ### API Endpoints
 
-| Method | Endpoint       | Description             |
-| ------ | -------------- | ----------------------- |
-| `POST` | `/auth/signup` | Create a new user       |
-| `POST` | `/auth/signin` | Authenticate user       |
-| `POST` | `/ai`          | Generate AI travel plan |
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/auth/signup` | Create a new user |
+| `POST` | `/auth/signin` | Authenticate user |
+| `POST` | `/ai` | Generate AI travel plan |
 
 ### Example Request
 
@@ -176,11 +177,9 @@ The frontend will run on the local development URL provided by the development s
 
 ## 🔗 Project Links
 
-🌐 **Live Demo**
-https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/
+🌐 **[Live Demo](https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/)**
 
-💻 **GitHub Repository**
-https://github.com/Hammadsoftware/ai-travel-agent
+💻 **[GitHub Repository](https://github.com/Hammadsoftware/ai-travel-agent)**
 
 ---
 
