@@ -1,92 +1,208 @@
-✈️ AI Travel Agent — Frontend
+# ✈️ AI Travel Agent — Frontend
 
-Modern AI travel-planning interface built with React + TypeScript and connected to the FastAPI AI backend.
+A modern AI-powered travel planning interface built with **React + TypeScript**, connected to a **FastAPI + LangGraph** backend.
 
-🌐 Live Demo
+🌐 **Live Demo:**
+https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/
 
-🚀 Try the AI Travel Agent
+💻 **GitHub Repository:**
+https://github.com/Hammadsoftware/ai-travel-agent
 
-📐 Architecture
+---
 
+## 🔹 Key Features
 
+* 🤖 **Natural-Language Travel Planning** — Ask travel questions naturally.
+* ✈️ **Flight Information** — Search and display flight data.
+* 🏨 **Hotel Information** — Find hotel information for destinations.
+* 🗺️ **AI Itinerary** — Generate structured travel plans.
+* 📊 **Trip Insights** — Display travel statistics and visualization data.
+* 🔐 **Authentication** — Signup and signin interface.
+* ⚡ **AI Responses** — Receive responses from the agentic AI backend.
+* 📱 **Responsive UI** — Modern responsive travel interface.
 
-🚀 Features
+---
 
-🤖 Natural-language travel input
+## 🛠️ Tech Stack
 
-✈️ Flight information
+| Component            | Technology   | Purpose                |
+| -------------------- | ------------ | ---------------------- |
+| **Frontend**         | React        | User interface         |
+| **Language**         | TypeScript   | Type-safe development  |
+| **Styling**          | Tailwind CSS | Responsive UI          |
+| **API Client**       | Axios        | REST API communication |
+| **Routing**          | React Router | Application navigation |
+| **State Management** | Zustand      | Client-side state      |
+| **Backend**          | FastAPI      | REST API               |
+| **AI Orchestration** | LangGraph    | Agent workflow         |
+| **LLM**              | Groq / Llama | AI processing          |
+| **Web Search**       | Tavily       | Travel information     |
 
-🏨 Hotel information
+---
 
-🗺️ Travel itinerary
+## 🏗️ Architecture Overview
 
-📊 Trip information and visualizations
+![AI Travel Agent Architecture](docs/architecture.png)
 
-🔐 Authentication UI
+### Application Flow
 
-⚡ Real-time AI response interface
+```text
+┌──────────────────────────────┐
+│       React Frontend         │
+│                              │
+│  Travel Planner UI           │
+│  Authentication              │
+│  Flight / Hotel Results       │
+│  Itinerary & Insights         │
+└──────────────┬───────────────┘
+               │
+               │ API Requests / JSON
+               ▼
+┌──────────────────────────────┐
+│       FastAPI Backend        │
+│                              │
+│      REST API Layer          │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│          LangGraph           │
+│     Agent Orchestration      │
+│                              │
+│   Supervisor / Router Agent  │
+└──────────────┬───────────────┘
+               │
+       ┌───────┼────────┐
+       ▼       ▼        ▼
+   Flight    Hotel    Web Search
+    Agent    Agent      Agent
+       │       │        │
+       ▼       ▼        ▼
+ Aviation   Hotel     Tavily
+  stack     Search    Search
+       │       │        │
+       └───────┼────────┘
+               ▼
+┌──────────────────────────────┐
+│     Response Synthesizer     │
+│                              │
+│  Combine Agent Results       │
+│  Generate Final Response     │
+└──────────────┬───────────────┘
+               │
+               ▼
+        React Frontend
+```
 
-📱 Responsive design
+---
 
-🛠️ Tech Stack
-
-React
-
-TypeScript
-
-Tailwind CSS
-
-Axios
-
-React Router
-
-Zustand
-
-🔌 Backend Integration
+## 🔌 Backend Integration
 
 The frontend communicates with the FastAPI backend through REST APIs.
 
-React Frontend
-      ↓
-   Axios
-      ↓
-FastAPI Backend
-      ↓
-   LangGraph
-      ↓
-AI Travel Response
+### API Endpoints
 
-Main API endpoints:
+| Method | Endpoint       | Description             |
+| ------ | -------------- | ----------------------- |
+| `POST` | `/auth/signup` | Create a new user       |
+| `POST` | `/auth/signin` | Authenticate user       |
+| `POST` | `/ai`          | Generate AI travel plan |
 
-POST /auth/signup
-POST /auth/signin
-POST /ai
+### Example Request
 
-📁 Structure
+```json
+{
+  "query": "Plan a trip from Lahore to Dubai"
+}
+```
 
+### Response Flow
+
+```text
+React
+  ↓
+Axios
+  ↓
+FastAPI
+  ↓
+LangGraph
+  ↓
+Flight / Hotel / Search Agents
+  ↓
+Response Synthesizer
+  ↓
+FastAPI
+  ↓
+React
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 Frontend/
+│
 ├── src/
 │   ├── components/
-│   ├── pages/
+│   │   ├── Sidebar.tsx
+│   │   └── cards/
+│   │       └── FlightCard.tsx
+│   │
 │   ├── api/
+│   │   └── client.ts
+│   │
+│   ├── App.tsx
 │   └── ...
+│
 ├── public/
+│
+├── index.html
 ├── package.json
+├── package-lock.json
 └── README.md
+```
 
-▶️ Run
+---
 
+## ▶️ Run Locally
+
+### Install Dependencies
+
+```bash
 npm install
+```
+
+### Start Development Server
+
+```bash
 npm run dev
+```
 
-The frontend will run on the local development URL shown by Vite.
+The frontend will run on the local development URL provided by the development server.
 
-🔗 Project Links
+---
 
-🌐 Live Demo: https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/
+## 🌐 Live Application
 
-💻 GitHub: https://github.com/Hammadsoftware/ai-travel-agent
+🚀 **[Try the AI Travel Agent](https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/)**
 
-👨‍💻 Author
+---
 
-Hammad Tariq — Full Stack / AI Developer
+## 🔗 Project Links
+
+🌐 **Live Demo**
+https://18p0f0inr0d49dap6mx9f11y9.nativelyai.app/
+
+💻 **GitHub Repository**
+https://github.com/Hammadsoftware/ai-travel-agent
+
+---
+
+## 👨‍💻 Author
+
+**Hammad Tariq**
+
+Full Stack / AI Developer
+
+**Focus:** React • TypeScript • FastAPI • LangChain • LangGraph • Agentic AI
